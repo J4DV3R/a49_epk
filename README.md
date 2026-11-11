@@ -38,6 +38,21 @@ git push -u origin main
 
 Después, activa Pages como en los pasos 3 a 5.
 
+## Añadir un concierto
+
+En `index.html`, busca la sección `Próximos conciertos` y copia un bloque `<li class="gig" …>`. Cambia:
+
+- `data-date` (formato `AAAA-MM-DD`) y la fecha visible dentro de `<time>`.
+- `data-venue` y `data-city`, y la sala y la ciudad que se ven.
+- `data-tickets` y el `href` del botón **Entradas** (si aún no hay entradas, borra el botón y deja `data-tickets=""`).
+
+Ordénalos de más cercano a más lejano. Los conciertos pasados se ocultan solos al día siguiente, y el primero de la lista aparece también en el cierre ("Nos vemos en directo"). Si no queda ninguno, la sección desaparece.
+
+Para Google, añade también el concierto en la lista `"event"` del bloque `application/ld+json` del `<head>`.
+
 ## Dominio propio (opcional)
+
+Si conectas un dominio, cambia en el `<head>` de `index.html` las direcciones `https://j4dv3r.github.io/a49_epk/` (canonical, `og:url`, `og:image` y el bloque `application/ld+json`) por la nueva.
+
 
 En **Settings → Pages → Custom domain** escribe tu dominio (por ejemplo `a49banda.com`) y configura en tu proveedor de dominio un registro CNAME que apunte a `TU-USUARIO.github.io`.

@@ -11,8 +11,47 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="A-49">
 <meta property="og:description" content="A-49 es una banda de Sevilla formada por seis músicos. Rock alternativo, funk y punk.">
-<meta property="og:image" content="og-image.jpg">
+<!-- Si cambia la dirección de la web (dominio propio), actualiza estas URL completas -->
+<link rel="canonical" href="https://j4dv3r.github.io/a49_epk/">
+<meta property="og:url" content="https://j4dv3r.github.io/a49_epk/">
+<meta property="og:image" content="https://j4dv3r.github.io/a49_epk/og-image.jpg">
+<meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "A-49",
+  "url": "https://j4dv3r.github.io/a49_epk/",
+  "logo": "https://j4dv3r.github.io/a49_epk/img/logo.jpg",
+  "image": "https://j4dv3r.github.io/a49_epk/og-image.jpg",
+  "description": "A-49 es una banda de Sevilla formada por seis músicos. Rock alternativo, funk y punk.",
+  "genre": ["Rock alternativo", "Funk", "Punk"],
+  "foundingLocation": { "@type": "Place", "name": "Sevilla" },
+  "email": "a49rockband@gmail.com",
+  "sameAs": ["https://www.instagram.com/what.the.a49/", "https://www.tiktok.com/@what.the.a49"],
+  "member": [
+    { "@type": "Person", "name": "Marina" },
+    { "@type": "Person", "name": "Javi" },
+    { "@type": "Person", "name": "Carlos" },
+    { "@type": "Person", "name": "Jesús" },
+    { "@type": "Person", "name": "Guille" },
+    { "@type": "Person", "name": "Nico" }
+  ],
+  "event": [
+    {
+      "@type": "MusicEvent",
+      "name": "A-49 en Fun Club",
+      "startDate": "2026-12-04",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": { "@type": "Place", "name": "Fun Club", "address": { "@type": "PostalAddress", "addressLocality": "Sevilla", "addressCountry": "ES" } },
+      "performer": { "@type": "MusicGroup", "name": "A-49" },
+      "offers": { "@type": "Offer", "url": "https://entradium.com/events/concierto-a-49-mar-de-plata", "availability": "https://schema.org/InStock" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@400;500;600&display=swap">
@@ -166,6 +205,28 @@ p.lead { color: var(--fg); font-size: clamp(19px, 2.2vw, 23px); }
 .count { display: inline-flex; align-items: baseline; gap: 10px; margin-top: 14px; padding: 8px 16px; border: 1px solid var(--red); font-family: var(--font-display); font-size: 36px; line-height: 1; letter-spacing: .04em; }
 .count small { font-family: var(--font-body); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 
+/* próximos conciertos: cada .gig es un concierto; los pasados se ocultan solos */
+/* ancho máximo para que el cuadro no llegue a la navegación lateral ni a sus etiquetas */
+.gigs { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 14px; max-width: 680px; }
+.gig { display: grid; grid-template-columns: minmax(0, 15ch) minmax(0, 1fr) auto; align-items: center; gap: 12px clamp(20px, 4vw, 56px); padding: clamp(20px, 3vw, 30px) clamp(20px, 3vw, 34px); border: 1px solid var(--line); transition: border-color .3s, background .3s; }
+.gig:hover { border-color: var(--red); background: rgba(253, 6, 4, .06); }
+.gig time { font-family: var(--font-display); font-size: clamp(30px, 3.6vw, 44px); line-height: 1; letter-spacing: .03em; }
+.gig time small { display: block; margin-top: 6px; font-family: var(--font-body); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--red-soft); font-weight: 600; }
+.gig .where b { display: block; font-family: var(--font-display); font-size: clamp(28px, 3.2vw, 40px); font-weight: 400; line-height: 1; letter-spacing: .04em; }
+.gig .where span { display: block; margin-top: 6px; color: var(--muted); font-size: 15px; letter-spacing: .12em; text-transform: uppercase; }
+.btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--red); background: var(--red); color: var(--fg); text-decoration: none; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; transition: background .3s, color .3s; }
+.btn:hover { background: transparent; color: var(--fg); }
+.btn.ghost { background: transparent; }
+.btn.ghost:hover { background: var(--red); }
+@media (max-width: 640px) { .gig { grid-template-columns: 1fr; } .gig .btn { justify-self: start; } }
+
+/* ficha rápida */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 30px 0 0; }
+.facts div { padding: 14px 16px; border-left: 2px solid var(--red); }
+.facts dt { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--red-soft); font-weight: 600; }
+.facts dd { margin: 4px 0 0; color: var(--fg); font-size: 16px; line-height: 1.35; }
+@media (max-width: 1000px) { .facts { grid-template-columns: 1fr; gap: 8px; } }
+
 .date { color: var(--red-soft); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 18px; }
 .instruments { margin: clamp(80px, 10vw, 130px) 0 0; max-width: 62ch; }
 blockquote { margin: 26px 0 0; padding-left: 20px; border-left: 2px solid var(--red); color: var(--fg); font-size: 19px; max-width: 52ch; }
@@ -188,8 +249,12 @@ blockquote cite { display: block; margin-top: 12px; font-style: normal; font-siz
 .closing .inner { position: relative; padding-block: 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .closing h2 { font-size: clamp(56px, 9vw, 130px); margin-bottom: 14px; }
 .closing p { color: var(--fg); margin: 0; }
+.closing .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.closing .ctas .cta { margin-top: 0; }
 .closing .cta { display: inline-block; margin-top: 26px; padding: 12px 22px; border: 1px solid var(--red); background: var(--red); color: var(--fg); text-decoration: none; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; transition: background .3s; }
 .closing .cta:hover { background: transparent; color: var(--fg); }
+.closing .cta.ghost { background: rgba(0,0,0,.35); }
+.closing .cta.ghost:hover { background: var(--red); }
 footer { padding-block: 26px 36px; font-size: 13px; color: var(--muted); letter-spacing: .08em; }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
@@ -224,6 +289,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   <a href="#seis"><span>Seis formas</span></a>
   <a href="#sonido"><span>Sonido</span></a>
   <a href="#escenario"><span>Del ensayo al escenario</span></a>
+  <a href="#conciertos"><span>Próximos conciertos</span></a>
   <a href="#contacto"><span>Contacto</span></a>
 </nav>
 
@@ -307,12 +373,33 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     </div>
   </section>
 
+  <!-- Próximos conciertos. Para añadir uno, copia un <li class="gig"> y cambia data-date (AAAA-MM-DD),
+       la fecha visible, la sala, la ciudad y el enlace de entradas. Los conciertos pasados se ocultan solos,
+       y si no queda ninguno se oculta la sección entera. El primero de la lista se usa también en el cierre. -->
+  <section id="conciertos">
+    <div class="wrap">
+      <h2 class="reveal">Próximos conciertos</h2>
+      <ul class="gigs">
+        <li class="gig reveal" data-date="2026-12-04" data-venue="Fun Club" data-city="Sevilla" data-tickets="https://entradium.com/events/concierto-a-49-mar-de-plata">
+          <time datetime="2026-12-04">4 dic 2026<small class="countdown"></small></time>
+          <div class="where"><b>Fun Club</b><span>Sevilla</span></div>
+          <a class="btn" href="https://entradium.com/events/concierto-a-49-mar-de-plata" target="_blank" rel="noopener">Entradas</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section id="contacto">
     <div class="rays r3" aria-hidden="true"><svg viewBox="0 0 200 200" fill="none" stroke="#fd0604" stroke-width="0.7"><line x1="158.0" y1="100.0" x2="198.0" y2="100.0"/><line x1="157.9" y1="104.0" x2="197.8" y2="106.8"/><line x1="157.4" y1="108.1" x2="197.0" y2="113.6"/><line x1="156.7" y1="112.1" x2="195.9" y2="120.4"/><line x1="155.8" y1="116.0" x2="194.2" y2="127.0"/><line x1="154.5" y1="119.8" x2="192.1" y2="133.5"/><line x1="153.0" y1="123.6" x2="189.5" y2="139.9"/><line x1="151.2" y1="127.2" x2="186.5" y2="146.0"/><line x1="149.2" y1="130.7" x2="183.1" y2="151.9"/><line x1="146.9" y1="134.1" x2="179.3" y2="157.6"/><line x1="144.4" y1="137.3" x2="175.1" y2="163.0"/><line x1="141.7" y1="140.3" x2="170.5" y2="168.1"/><line x1="138.8" y1="143.1" x2="165.6" y2="172.8"/><line x1="135.7" y1="145.7" x2="160.3" y2="177.2"/><line x1="132.4" y1="148.1" x2="154.8" y2="181.2"/><line x1="129.0" y1="150.2" x2="149.0" y2="184.9"/><line x1="125.4" y1="152.1" x2="143.0" y2="188.1"/><line x1="121.7" y1="153.8" x2="136.7" y2="190.9"/><line x1="117.9" y1="155.2" x2="130.3" y2="193.2"/><line x1="114.0" y1="156.3" x2="123.7" y2="195.1"/><line x1="110.1" y1="157.1" x2="117.0" y2="196.5"/><line x1="106.1" y1="157.7" x2="110.2" y2="197.5"/><line x1="102.0" y1="158.0" x2="103.4" y2="197.9"/><line x1="98.0" y1="158.0" x2="96.6" y2="197.9"/><line x1="93.9" y1="157.7" x2="89.8" y2="197.5"/><line x1="89.9" y1="157.1" x2="83.0" y2="196.5"/><line x1="86.0" y1="156.3" x2="76.3" y2="195.1"/><line x1="82.1" y1="155.2" x2="69.7" y2="193.2"/><line x1="78.3" y1="153.8" x2="63.3" y2="190.9"/><line x1="74.6" y1="152.1" x2="57.0" y2="188.1"/><line x1="71.0" y1="150.2" x2="51.0" y2="184.9"/><line x1="67.6" y1="148.1" x2="45.2" y2="181.2"/><line x1="64.3" y1="145.7" x2="39.7" y2="177.2"/><line x1="61.2" y1="143.1" x2="34.4" y2="172.8"/><line x1="58.3" y1="140.3" x2="29.5" y2="168.1"/><line x1="55.6" y1="137.3" x2="24.9" y2="163.0"/><line x1="53.1" y1="134.1" x2="20.7" y2="157.6"/><line x1="50.8" y1="130.7" x2="16.9" y2="151.9"/><line x1="48.8" y1="127.2" x2="13.5" y2="146.0"/><line x1="47.0" y1="123.6" x2="10.5" y2="139.9"/><line x1="45.5" y1="119.8" x2="7.9" y2="133.5"/><line x1="44.2" y1="116.0" x2="5.8" y2="127.0"/><line x1="43.3" y1="112.1" x2="4.1" y2="120.4"/><line x1="42.6" y1="108.1" x2="3.0" y2="113.6"/><line x1="42.1" y1="104.0" x2="2.2" y2="106.8"/><line x1="42.0" y1="100.0" x2="2.0" y2="100.0"/><line x1="42.1" y1="96.0" x2="2.2" y2="93.2"/><line x1="42.6" y1="91.9" x2="3.0" y2="86.4"/><line x1="43.3" y1="87.9" x2="4.1" y2="79.6"/><line x1="44.2" y1="84.0" x2="5.8" y2="73.0"/><line x1="45.5" y1="80.2" x2="7.9" y2="66.5"/><line x1="47.0" y1="76.4" x2="10.5" y2="60.1"/><line x1="48.8" y1="72.8" x2="13.5" y2="54.0"/><line x1="50.8" y1="69.3" x2="16.9" y2="48.1"/><line x1="53.1" y1="65.9" x2="20.7" y2="42.4"/><line x1="55.6" y1="62.7" x2="24.9" y2="37.0"/><line x1="58.3" y1="59.7" x2="29.5" y2="31.9"/><line x1="61.2" y1="56.9" x2="34.4" y2="27.2"/><line x1="64.3" y1="54.3" x2="39.7" y2="22.8"/><line x1="67.6" y1="51.9" x2="45.2" y2="18.8"/><line x1="71.0" y1="49.8" x2="51.0" y2="15.1"/><line x1="74.6" y1="47.9" x2="57.0" y2="11.9"/><line x1="78.3" y1="46.2" x2="63.3" y2="9.1"/><line x1="82.1" y1="44.8" x2="69.7" y2="6.8"/><line x1="86.0" y1="43.7" x2="76.3" y2="4.9"/><line x1="89.9" y1="42.9" x2="83.0" y2="3.5"/><line x1="93.9" y1="42.3" x2="89.8" y2="2.5"/><line x1="98.0" y1="42.0" x2="96.6" y2="2.1"/><line x1="102.0" y1="42.0" x2="103.4" y2="2.1"/><line x1="106.1" y1="42.3" x2="110.2" y2="2.5"/><line x1="110.1" y1="42.9" x2="117.0" y2="3.5"/><line x1="114.0" y1="43.7" x2="123.7" y2="4.9"/><line x1="117.9" y1="44.8" x2="130.3" y2="6.8"/><line x1="121.7" y1="46.2" x2="136.7" y2="9.1"/><line x1="125.4" y1="47.9" x2="143.0" y2="11.9"/><line x1="129.0" y1="49.8" x2="149.0" y2="15.1"/><line x1="132.4" y1="51.9" x2="154.8" y2="18.8"/><line x1="135.7" y1="54.3" x2="160.3" y2="22.8"/><line x1="138.8" y1="56.9" x2="165.6" y2="27.2"/><line x1="141.7" y1="59.7" x2="170.5" y2="31.9"/><line x1="144.4" y1="62.7" x2="175.1" y2="37.0"/><line x1="146.9" y1="65.9" x2="179.3" y2="42.4"/><line x1="149.2" y1="69.3" x2="183.1" y2="48.1"/><line x1="151.2" y1="72.8" x2="186.5" y2="54.0"/><line x1="153.0" y1="76.4" x2="189.5" y2="60.1"/><line x1="154.5" y1="80.2" x2="192.1" y2="66.5"/><line x1="155.8" y1="84.0" x2="194.2" y2="73.0"/><line x1="156.7" y1="87.9" x2="195.9" y2="79.6"/><line x1="157.4" y1="91.9" x2="197.0" y2="86.4"/><line x1="157.9" y1="96.0" x2="197.8" y2="93.2"/></svg></div>
     <div class="wrap row">
       <div>
         <h2 class="reveal">Contacto y<br>contratación</h2>
         <p class="lead reveal" style="--d:.1s">Si quieres conocer nuestra música, organizar una actuación o ponerte en contacto con la banda, puedes encontrarnos aquí.</p>
+        <dl class="facts reveal" style="--d:.2s">
+          <div><dt>Estilo</dt><dd>Rock alternativo, funk y punk</dd></div>
+          <div><dt>Origen</dt><dd>Sevilla</dd></div>
+          <div><dt>Formación</dt><dd>6 integrantes</dd></div>
+        </dl>
         <div class="contact-list reveal" style="--d:.3s">
           <div class="chip"><span class="k">Instagram</span><a href="https://www.instagram.com/what.the.a49/" target="_blank" rel="noopener">@what.the.a49</a></div>
           <div class="chip"><span class="k">TikTok</span><a href="https://www.tiktok.com/@what.the.a49" target="_blank" rel="noopener">@what.the.a49</a></div>
@@ -328,8 +415,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <div class="inner">
       <div class="wrap">
         <h2 class="reveal">Nos vemos en directo</h2>
-        <p class="reveal" style="--d:.1s">4 de diciembre de 2026 · Fun Club · Sevilla</p>
-        <a class="cta reveal" style="--d:.2s" href="https://www.instagram.com/what.the.a49/" target="_blank" rel="noopener">Síguenos en Instagram</a>
+        <p class="reveal" style="--d:.1s" id="next-gig">4 de diciembre de 2026 · Fun Club · Sevilla</p>
+        <div class="ctas reveal" style="--d:.2s">
+          <a class="cta" id="next-tickets" href="https://entradium.com/events/concierto-a-49-mar-de-plata" target="_blank" rel="noopener">Entradas</a>
+          <a class="cta ghost" href="https://www.instagram.com/what.the.a49/" target="_blank" rel="noopener">Síguenos en Instagram</a>
+        </div>
       </div>
     </div>
   </section>
@@ -341,13 +431,57 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   root.classList.add('js');
 
-  /* fotos: si existe el archivo en img/, sustituye al marcador */
-  document.querySelectorAll('.ph[data-img]').forEach(function (ph) {
+  /* próximos conciertos: oculta los pasados (se ven hasta que acaba el día del concierto),
+     pone la cuenta atrás y lleva el siguiente al cierre. Sin conciertos, se ocultan la sección y su raya. */
+  (function () {
+    var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var next = null;
+    document.querySelectorAll('.gig[data-date]').forEach(function (g) {
+      var p = g.getAttribute('data-date').split('-');
+      var d = new Date(+p[0], +p[1] - 1, +p[2]);
+      if (d < today) { g.remove(); return; }
+      var days = Math.round((d - today) / 864e5);
+      var c = g.querySelector('.countdown');
+      if (c) c.textContent = days === 0 ? 'Hoy' : days === 1 ? 'Mañana' : 'Faltan ' + days + ' días';
+      if (!next) next = { el: g, d: d };
+    });
+    var line = document.getElementById('next-gig');
+    var tickets = document.getElementById('next-tickets');
+    if (next) {
+      var g = next.el;
+      line.textContent = next.d.getDate() + ' de ' + meses[next.d.getMonth()] + ' de ' + next.d.getFullYear() + ' · ' + g.getAttribute('data-venue') + ' · ' + g.getAttribute('data-city');
+      var t = g.getAttribute('data-tickets');
+      if (t) tickets.href = t; else tickets.remove();
+    } else {
+      var sec = document.getElementById('conciertos');
+      if (sec) sec.remove();
+      var nl = document.querySelector('.nav a[href="#conciertos"]');
+      if (nl) nl.remove();
+      line.remove();
+      tickets.remove();
+    }
+  })();
+
+  /* fotos: si existe el archivo en img/, sustituye al marcador.
+     Se cargan al acercarse a la pantalla para que la portada salga antes. */
+  function loadPh(ph) {
     var img = new Image();
     img.alt = '';
+    img.decoding = 'async';
     img.onload = function () { ph.insertBefore(img, ph.firstChild); ph.classList.add('has-img'); };
     img.src = ph.getAttribute('data-img');
-  });
+  }
+  var phs = document.querySelectorAll('.ph[data-img]');
+  if ('IntersectionObserver' in window) {
+    var lazy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { lazy.unobserve(e.target); loadPh(e.target); } });
+    }, { rootMargin: '800px 0px' });
+    phs.forEach(function (ph) { lazy.observe(ph); });
+  } else {
+    phs.forEach(loadPh);
+  }
 
   /* revelado en ambos sentidos: entra al aparecer y se oculta al salir de pantalla.
      Si sale por arriba, queda desplazado hacia arriba para volver a entrar desde ahí al subir. */
